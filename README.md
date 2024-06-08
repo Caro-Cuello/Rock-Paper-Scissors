@@ -17,7 +17,7 @@ Abre en tu navegador el siguiente link; (https://caro-cuello.github.io/Rock-Pape
 - HtML5.
 - CSS3. 
 - JavaScript Vainilla.
-- 
+
 ## Contribuciones
 
 Si deseas contribuir a este proyecto, por favor sigue los siguientes pasos:
@@ -29,7 +29,7 @@ Si deseas contribuir a este proyecto, por favor sigue los siguientes pasos:
 - Push a la rama (git push origin feature/nueva-funcionalidad).
 - Crea un Pull Request.
 
-## Authors
+## Autor
 
 - [@Carolina Cuello ](https://www.linkedin.com/in/carolina-cuello-luna-982035233/)
 
