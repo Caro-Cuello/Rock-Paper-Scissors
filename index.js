@@ -1,6 +1,8 @@
 const ROCK = "rock"; 
 const PAPER = "paper"; 
 const SCISSOR = "scissor";
+const LIZARD = "lizard";
+const SPOCK = "spock";
 
 const TIE = 0; 
 const WIN = 1; 
@@ -10,6 +12,8 @@ const LOST = 2;
 const rockBtn = document.getElementById("rock");
 const paperBtn = document.getElementById("paper");
 const scissorBtn = document.getElementById("scissor");
+const lizardBtn = document.getElementById("lizard");
+const spockBtn = document.getElementById("spock");
 const resultText = document.getElementById("star-text");
 const userImg = document.getElementById("user-img");
 const machineImg = document.getElementById("machine-img");
@@ -25,6 +29,12 @@ paperBtn.addEventListener("click", () =>{
 scissorBtn.addEventListener("click", () =>{
     play(SCISSOR);
 }); 
+lizardBtn.addEventListener("click", () =>{
+    play(LIZARD);
+}); 
+spockBtn.addEventListener("click", () =>{
+    play(SPOCK);
+}); 
 
 function play(userOption){
     userImg.src = "img/"+userOption+".png";
@@ -35,7 +45,7 @@ function play(userOption){
     const interval =  setInterval(function (){
         machineOption = calcMachineOption();
         machineImg.src = "img/" + machineOption + ".png";
-    }, 200);
+    }, 100);
 
         setTimeout(function (){
 
@@ -61,7 +71,7 @@ function play(userOption){
 }
 
 function calcMachineOption(){
-    const number = Math.floor(Math.random()*3);
+    const number = Math.floor(Math.random()*5);
 
     switch (number){
         case 0: 
@@ -70,6 +80,10 @@ function calcMachineOption(){
         return PAPER; 
         case 2: 
         return SCISSOR;
+        case 3: 
+        return LIZARD;
+        case 4: 
+        return SPOCK;
 
     }
 }
@@ -83,19 +97,41 @@ function calResult(userOption, machineOption){
 
     else if (userOption === ROCK) {
         if (machineOption === PAPER) return LOST; 
+        if (machineOption === SPOCK) return LOST; 
         if (machineOption === SCISSOR) return WIN; 
+        if (machineOption === LIZARD) return WIN; 
     }
     //  OPTIONS PLAYING WITH PAPER 
 
     else if (userOption === PAPER) {
         if (machineOption === SCISSOR) return LOST; 
+        if (machineOption === LIZARD) return LOST; 
         if (machineOption === ROCK) return WIN; 
+        if (machineOption === SPOCK) return WIN; 
     }
     //  OPTIONS PLAYING WITH SCISSOR
 
      else if (userOption === SCISSOR) {
-            if (machineOption === PAPER) return WIN; 
-            if (machineOption === ROCK) return LOST; 
+         if (machineOption === ROCK) return LOST; 
+         if (machineOption === SPOCK) return LOST; 
+         if (machineOption === PAPER) return WIN; 
+         if (machineOption === LIZARD) return WIN; 
+        }
+    //  OPTIONS PLAYING WITH LIZARD
+
+     else if (userOption === LIZARD) {
+         if (machineOption === ROCK) return LOST; 
+         if (machineOption === SCISSOR) return LOST; 
+         if (machineOption === SPOCK) return WIN; 
+         if (machineOption === PAPER) return WIN; 
+        }
+    //  OPTIONS PLAYING WITH SPOCK
+
+     else if (userOption === SPOCK) {
+         if (machineOption === LIZARD) return LOST; 
+         if (machineOption === PAPER) return LOST; 
+         if (machineOption === SCISSOR) return WIN; 
+         if (machineOption === ROCK) return WIN; 
         }
 
 }
